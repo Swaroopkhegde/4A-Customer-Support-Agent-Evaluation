@@ -16,6 +16,7 @@ The repository includes an executed evaluation notebook, the human-review workbo
 | --- | --- |
 | [`week4_customer_support_evals.ipynb`](week4_customer_support_evals.ipynb) | Executed notebook containing the classifier, evaluation workflow, prompt revision, results, and trace instrumentation. |
 | [`Week 4_ AI Evals (E-Commerce Customer Support Agent).xlsx`](Week%204_%20AI%20Evals%20%28E-Commerce%20Customer%20Support%20Agent%29.xlsx) | Evaluation workbook for reviewing failures, grouping error patterns, revising prompts, and optionally aligning an LLM judge. |
+| [`Week 4_ AI Evals Data.csv`](Week%204_%20AI%20Evals%20Data.csv) | Labeled dataset the notebook loads — 150 tickets (`Ticket text` + `True category`). |
 | [`results_v1.csv`](results_v1.csv) | Baseline predictions and evaluation results. |
 | [`results_v2.csv`](results_v2.csv) | Improved-prompt predictions and evaluation results. |
 | [`docs/opentelemetry_integration_one_pager.md`](docs/opentelemetry_integration_one_pager.md) | Overview of the OpenTelemetry and LangSmith tracing setup. |
@@ -24,11 +25,11 @@ The repository includes an executed evaluation notebook, the human-review workbo
 
 | Run | Accuracy | Correct predictions |
 | --- | ---: | ---: |
-| Baseline prompt | 92% | 92 / 100 |
-| Improved prompt | 97% | 97 / 100 |
-| Change | +5 percentage points | +5 |
+| Baseline prompt | 96.0% | 144 / 150 |
+| Improved prompt | 96.7% | 145 / 150 |
+| Change | +0.7 percentage points | +1 net (2 wins, 1 regression) |
 
-The revised prompt improved routing accuracy while preserving the individual prediction records needed for failure analysis.
+Numbers are for the 150-ticket dataset in `Week 4_ AI Evals Data.csv` and match the current `results_v1.csv` / `results_v2.csv`. The revised prompt fixed two refund-intent misroutes and introduced one regression, while preserving the individual prediction records needed for failure analysis. (The notebook's saved cell outputs show an earlier 100-ticket run.)
 
 ## Evaluation Workflow
 

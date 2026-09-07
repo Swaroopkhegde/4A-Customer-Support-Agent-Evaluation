@@ -7,3 +7,6 @@ __pycache__/
 venv/
 work/
 *.pyc
+
+# local scratch copies of earlier eval runs
+__results_*.csv
